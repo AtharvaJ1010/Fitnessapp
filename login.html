@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Fitness Club - Login</h1>
+    </header>
+    <main class="form">
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <p id="loginMsg"></p>
+    </main>
+</body>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCjpdU9n5tD7t8GSDRtY2hfBgqBQN0n9ZI",
+        authDomain: "labassignment-7da64.firebaseapp.com",
+        projectId: "labassignment-7da64",
+        storageBucket: "labassignment-7da64.firebasestorage.app",
+        messagingSenderId: "796889797175",
+        appId: "1:796889797175:web:d951fbb3a2261b0e08e5b2",
+        measurementId: "G-NJFGB24644"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function login() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        const msg = document.getElementById("loginMsg");
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => {
+                msg.textContent = "✅ Logged in!";
+                setTimeout(() => window.location.href = "index.html", 1000);
+            })
+            .catch(err => {
+                msg.textContent = "❌ " + err.message;
+            });
+    }
+</script>
+
+</html>
