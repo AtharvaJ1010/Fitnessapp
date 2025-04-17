@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Fitness Pro</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness Pro</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
 </head>
-
 <body>
-    <h1>Welcome to Fitness Pro</h1>
-    <input type="text" id="nameInput" placeholder="Enter your name" />
-    <button onclick="saveUser()">Join Now</button>
+  <div class="container">
+    <h1>🏋️‍♂️ Fitness Pro Academy</h1>
+    <p>Train. Transform. Triumph.</p>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <div class="form">
+      <input type="text" id="nameInput" placeholder="Your Name" />
+      <select id="courseSelect">
+        <option value="" disabled selected>Select Course</option>
+        <option value="Yoga Basics">Yoga Basics</option>
+        <option value="HIIT Blast">HIIT Blast</option>
+        <option value="Strength Training">Strength Training</option>
+      </select>
+      <button onclick="enrollUser()">Enroll Now</button>
+    </div>
 
-    <script src="firebase.js"></script>
-    <script src="script.js"></script>
+    <div id="message"></div>
+  </div>
+
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
