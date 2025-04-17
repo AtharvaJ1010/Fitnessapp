@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fitness Pro</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <title>Fitness Pro - Home</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>🏋️‍♂️ Fitness Pro Academy</h1>
-    <p>Train. Transform. Triumph.</p>
+  <header>
+    <h1>Fitness Pro</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="enroll.html">Enroll</a>
+      <a href="trainers.html">Trainers</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
 
-    <div class="form">
-      <input type="text" id="nameInput" placeholder="Your Name" />
-      <select id="courseSelect">
-        <option value="" disabled selected>Select Course</option>
-        <option value="Yoga Basics">Yoga Basics</option>
-        <option value="HIIT Blast">HIIT Blast</option>
-        <option value="Strength Training">Strength Training</option>
-      </select>
-      <button onclick="enrollUser()">Enroll Now</button>
-    </div>
+  <main>
+    <section class="hero">
+      <h2>Your Fitness Journey Starts Here</h2>
+      <p>Join our training programs and transform yourself.</p>
+      <a href="enroll.html" class="btn">Enroll Now</a>
+    </section>
+  </main>
 
-    <div id="message"></div>
-  </div>
-
-  <script src="firebase.js"></script>
-  <script src="script.js"></script>
+  <footer>
+    <p>© 2025 Fitness Pro. All rights reserved.</p>
+  </footer>
 </body>
 </html>
