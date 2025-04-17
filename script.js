@@ -1,24 +1,21 @@
-function enrollUser() {
-  const name = document.getElementById("nameInput").value;
-  const course = document.getElementById("courseSelect").value;
-  const messageDiv = document.getElementById("message");
+function submitEnrollment() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const course = document.getElementById("course").value;
+  const msg = document.getElementById("enrollMsg");
 
-  if (name && course) {
+  if (name && email && course) {
     db.collection("enrollments").add({
       name,
+      email,
       course,
       enrolledAt: new Date()
-    })
-    .then(() => {
-      messageDiv.textContent = `✅ ${name}, you've successfully enrolled in ${course}!`;
-      document.getElementById("nameInput").value = "";
-      document.getElementById("courseSelect").selectedIndex = 0;
-    })
-    .catch(err => {
-      console.error("Error enrolling:", err);
-      messageDiv.textContent = "❌ Enrollment failed. Please try again.";
+    }).then(() => {
+      msg.textContent = `✅ Enrolled in ${course} successfully!`;
+    }).catch(err => {
+      msg.textContent = "❌ Enrollment failed.";
     });
   } else {
-    messageDiv.textContent = "⚠️ Please enter your name and select a course.";
+    msg.textContent = "⚠️ All fields are required.";
   }
 }
